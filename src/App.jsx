@@ -38,7 +38,6 @@ let router = createBrowserRouter([
     {path:"requests" , element:<CatchHacker><FriendRequests /></CatchHacker>},
     {path:"settings" , element:<CatchHacker><PasswordChange /></CatchHacker>},
     {path:"userprofile/:id" , element:<CatchHacker><UserPosts /></CatchHacker>},
-    {path:"share/:id" , element:<CatchHacker><SharePost /></CatchHacker>},
     {path:"notifications" , element:<CatchHacker><GetNotifications /></CatchHacker>},
     {path:"*" , element:<Notfound />},
   ]}

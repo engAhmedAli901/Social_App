@@ -129,7 +129,7 @@ if(commentsisLoading || postisLoading){
         <div className='p-3'>
         <div className='flex justify-between'>
           <div className='flex flex-wrap gap-1.5'>
-        {<img className='w-[50px] rounded-full' src={singlepost?.user?.photo}></img>}
+        {<img className='w-[50px] h-[50px] object-cover rounded-full' src={singlepost?.user?.photo}></img>}
         <div>
           <p className='font-bold text-sm'>{singlepost?.user?.name}</p>
           <p className='text-xs'>@{singlepost?.user?.username}</p>

@@ -125,7 +125,7 @@ console.log(error);
       <div className='w-full mx-auto bg-[#FFFFFF] rounded-4xl pb-10'>
         <div className='flex  flex-wrap mx-auto gap-3 p-5 '>
             <div className='relative lg:w-[10%] w-[20%] cursor-pointer group'>
-              <img className='rounded-full   border-3 border-green-700' src={Userdata?.photo}></img>
+              <img className='rounded-full w-[80px] h-[80px] object-cover    border-3 border-green-700' src={Userdata?.photo}></img>
                  </div>
         <div className='md:mt-3 lg:mr-50'>
           <h1 className='font-bold text-4xl'>{Userdata?.name}</h1>
@@ -187,7 +187,7 @@ console.log(error);
       <div className='p-3'>
         <div className='flex justify-between'>
           <div className='flex flex-wrap gap-1.5'>
-        {<img className='w-[50px] rounded-full' src={post.user.photo}></img>}
+        {<img className='w-[50px] object-cover h-[50px] rounded-full' src={post.user.photo}></img>}
         <div>
           <p className='font-bold text-sm'>{post.user.name}</p>
           <p className='text-xs'>@{post.user.username}</p>

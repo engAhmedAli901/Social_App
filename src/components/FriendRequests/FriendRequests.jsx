@@ -32,8 +32,8 @@ const [friendId, setFriendId] = useState("")
 </form>
     <div className='flex flex-wrap justify-between'>
       {(value==""?SuggestedFriends:FilteredFriends)?.map((friend)=>{
-      return <div className='w-[47%]'>
-        <div className='cursor-pointer   hover:bg-gray-100 flex  mt-2 gap-3 p-5 border border-gray-200 rounded-3xl '>
+      return <div className='md:w-[47%] '>
+        <div className='cursor-pointer   hover:bg-gray-100 flex   mt-2 gap-3 p-5 border border-gray-200 rounded-3xl '>
           <img className='w-[40px] h-[40px] rounded-full' src={friend.photo} />
           <div className=' w-[150px] h-fit'>
             <Link to={`/userprofile/${friend._id}`}><p className='hover:underline hover:underline-offset-1 text-sm font-bold w-full'>{friend.name}</p></Link>

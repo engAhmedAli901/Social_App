@@ -7,6 +7,7 @@ import { UserContext } from "../../Context/UserContext";
 
 export default function Navbar() {
   const [active, setActive] = useState(localStorage.getItem("active")||"")
+  const [showDropdown, setShowDropdown] = useState(false);
 
   let navigate = useNavigate()
 
@@ -58,31 +59,74 @@ export default function Navbar() {
       </ul>
 
     
-    <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-      <button type="button" className="cursor-pointer flex text-sm bg-neutral-primary rounded-full md:me-0 focus:ring-4 focus:ring-neutral-tertiary" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-        <span className="sr-only">Open user menu</span>
-        <img className="w-8 h-8 rounded-full" src={data?.photo} alt="user photo" />
-      </button>
-      {/* Dropdown menu */}
-      <div className="z-50 hidden bg-neutral-primary-medium border border-default-medium rounded-base shadow-lg w-44" id="user-dropdown">
-        <div className="px-4 py-3 text-sm border-b border-default">
-          <span className="block text-heading font-medium">{data?.name}</span>
-          <span className="block text-body truncate">{data?.email}</span>
-        </div>
-        <ul className="p-2 text-sm text-body font-medium" aria-labelledby="user-menu-button">
-          <li>
-            <Link to={"/profile"} className="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Profile</Link>
-          </li>
-          <li>
-            <Link to={"/settings"} className="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Settings</Link>
-          </li>
-          <hr className="text-gray-300"/>
-          <li>
-            <span onClick={()=>{signout()}} className="text-red-600 cursor-pointer inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Log out</span>
-          </li>
-        </ul>
+    
+<div className="relative flex items-center md:order-2">
+  <button
+    type="button"
+    onClick={() => setShowDropdown(!showDropdown)}
+    className="cursor-pointer flex text-sm rounded-full focus:ring-4 focus:ring-blue-200"
+  >
+    <img
+      className="w-8 h-8 rounded-full object-cover"
+      src={data?.photo}
+      alt="user photo"
+    />
+  </button>
+
+  {showDropdown && (
+    <div className="absolute right-0 top-full mt-3 z-50 bg-white border border-gray-200 rounded-xl shadow-lg w-52">
+
+      <div className="px-4 py-3 text-sm border-b border-gray-200">
+        <span className="block font-bold text-gray-900">
+          {data?.name}
+        </span>
+
+        <span className="block text-gray-500 truncate">
+          {data?.email}
+        </span>
       </div>
+
+      <ul className="p-2 text-sm font-medium">
+
+        <li>
+          <Link
+            to="/profile"
+            onClick={() => setShowDropdown(false)}
+            className="block p-2 rounded-lg hover:bg-gray-100"
+          >
+            Profile
+          </Link>
+        </li>
+
+        <li>
+          <Link
+            to="/settings"
+            onClick={() => setShowDropdown(false)}
+            className="block p-2 rounded-lg hover:bg-gray-100"
+          >
+            Settings
+          </Link>
+        </li>
+
+        <hr className="my-2 border-gray-200" />
+
+        <li>
+          <button
+            onClick={() => {
+              setShowDropdown(false);
+              signout();
+            }}
+            className="w-full text-left text-red-600 p-2 rounded-lg hover:bg-gray-100 cursor-pointer"
+          >
+            Log out
+          </button>
+        </li>
+
+      </ul>
     </div>
+  )}
+</div>
+
     </>: ""}
 
     {/* end user details */}

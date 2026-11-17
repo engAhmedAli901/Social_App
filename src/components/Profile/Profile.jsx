@@ -116,7 +116,7 @@ if(formdata.has(image))console.log("hello");
       <div className='w-full mx-auto bg-[#FFFFFF] rounded-4xl pb-10'>
         <div className='flex flex-wrap mx-auto gap-3 p-5 '>
             <div className='relative lg:w-[10%] w-[20%]  cursor-pointer group'>
-              <img className='rounded-full h-full   border-3 border-green-700' src={data?.photo}></img>
+              <img className='rounded-full  object-cover w-[80px] h-[80px]  border-3 border-green-700' src={data?.photo}></img>
               <div className='cursor-pointer absolute bottom-0 bg-blue-600 rounded-full right-1 p-2 '>
                 <label htmlFor="aaa"><i className='cursor-pointer fa-regular fa-camera  text-white'></i></label>
                 <input onChange={(e)=>handlePhoto(e.target.files[0])} id='aaa' accept="image/*" className="hidden" type="file" />
@@ -192,7 +192,7 @@ if(formdata.has(image))console.log("hello");
       <div className='p-3'>
         <div className='flex justify-between'>
           <div className='flex flex-wrap gap-1.5'>
-        {<img className='w-[50px] rounded-full' src={post.user.photo}></img>}
+        {<img className='w-[50px] h-[50px] object-cover rounded-full' src={post.user.photo}></img>}
         <div>
           <p className='font-bold text-sm'>{post.user.name}</p>
           <p className='text-xs'>@{post.user.username}</p>

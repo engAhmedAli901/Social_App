@@ -109,7 +109,7 @@ if(isLoading){
         <div className='flex justify-between'>
           <Link className='hover:underline hover:underline-offset-1 cursor-pointer'  to={`/userprofile/${post.user._id}`}>
           <div className='flex flex-wrap gap-1.5'>
-        {<img className='w-[50px] rounded-full' src={post.user.photo}></img>}
+        {<img className='w-[50px] h-[50px] object-cover rounded-full' src={post.user.photo}></img>}
         <div>
           <p className='font-bold text-sm'>{post.user.name}</p>
           <p className='text-xs'>@{post.user.username}</p>
