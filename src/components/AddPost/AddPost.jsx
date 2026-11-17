@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Style from "./AddPost.module.css";
 import axios from "axios";
 import { useQueryClient, useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+import { UserContext } from "../../Context/UserContext";
 export default function AddPost() {
+
+
+  let {data} = useContext(UserContext)
 
 
 
@@ -81,11 +85,11 @@ export default function AddPost() {
           <img
             alt="Upton Humphrey"
             className="h-11 w-11 rounded-full object-cover"
-            src="https://pub-3cba56bacf9f4965bbb0989e07dada12.r2.dev/linkedPosts/default-profile.png"
+            src={data.photo}
           />
           <div className="flex-1">
             <p className="text-base font-extrabold text-slate-900">
-              Upton Humphrey
+              {data.name}
             </p>
             {/* <div className="mt-1 inline-flex items-center gap-2 rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-700">
               <svg
@@ -121,7 +125,7 @@ export default function AddPost() {
           value={body}
           onChange={(e)=>setBody(e.target.value)}
             rows={4}
-            placeholder="What's on your mind, Upton?"
+            placeholder={`What's on your mind, ${data.name}?`}
             className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-[17px] leading-relaxed text-slate-800 outline-none transition focus:border-[#1877f2] focus:bg-white"
             
           />

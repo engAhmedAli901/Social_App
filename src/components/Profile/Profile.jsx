@@ -117,7 +117,7 @@ if(formdata.has(image))console.log("hello");
         <div className='flex flex-wrap mx-auto gap-3 p-5 '>
             <div className='relative lg:w-[10%] w-[20%]  cursor-pointer group'>
               <img className='rounded-full h-full   border-3 border-green-700' src={data?.photo}></img>
-              <div className='cursor-pointer absolute bottom-0 bg-blue-600 rounded-full right-1 p-2 hidden  group-hover:inline'>
+              <div className='cursor-pointer absolute bottom-0 bg-blue-600 rounded-full right-1 p-2 '>
                 <label htmlFor="aaa"><i className='cursor-pointer fa-regular fa-camera  text-white'></i></label>
                 <input onChange={(e)=>handlePhoto(e.target.files[0])} id='aaa' accept="image/*" className="hidden" type="file" />
                </div>

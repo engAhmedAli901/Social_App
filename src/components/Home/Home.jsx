@@ -24,7 +24,7 @@ const [isShareId, setIsShareId] = useState("")
 
 
 function getAllPosts(){
-  return  axios.get(`https://route-posts.routemisr.com/posts/feed?only=following&limit=50`,{
+  return  axios.get(`https://route-posts.routemisr.com/posts`,{
                 headers:{
                     token:localStorage.getItem("userToken")
                 }
@@ -214,7 +214,7 @@ if(isLoading){
       </div>
     </div>
     </div>
-          <div className='w-1/2 mx-auto rounded-2xl bg-black opacity-100 fixed top-40 left-5 right-2'> {selectedPostId === post.id && <LikeUsers id={post.id} />}</div>
+          <div className='w-1/2 mx-auto rounded-2xl bg-black opacity-100 absolute top-40 left-5 right-2'> {selectedPostId === post.id && <LikeUsers id={post.id} />}</div>
 
   </div>
     
